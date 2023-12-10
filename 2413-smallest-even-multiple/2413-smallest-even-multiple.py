@@ -1,13 +1,10 @@
 class Solution(object):
     def smallestEvenMultiple(self, n):
-        result = 0
-        isTrue =  True
-        multiplier = 1
+        result, isTrue = 0, True
         while isTrue:
-            for i in range(1, n+1):   
-                if 2 * i == n * multiplier:
-                    result = n * multiplier
-                    isTrue = False
-            multiplier += 1
+            result +=1
+            if (n * result) % 2 == 0:
+                isTrue = False
+                result = n * result
         return result
-        
+                
