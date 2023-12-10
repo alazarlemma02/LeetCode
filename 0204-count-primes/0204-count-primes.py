@@ -2,10 +2,12 @@ class Solution(object):
     def countPrimes(self, n):
         if n <= 2:
             return 0
-        is_prime = [True] * n
-        is_prime[0] = is_prime[1] = False
-        for i in range(2, int(n**0.5) + 1):
-            if is_prime[i]:
-                for j in range(i*i, n, i):
-                    is_prime[j] = False
-        return sum(is_prime)
+        container = []
+        for i in range(n): container.append(True)
+        container[0], container[1] = False, False
+        for num in range(2,n):
+            if container[num]:
+                for i in range(num*2, n, num):
+                    container[i] = False
+        return container.count(True)
+            
