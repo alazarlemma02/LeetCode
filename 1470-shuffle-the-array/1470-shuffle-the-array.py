@@ -1,9 +1,10 @@
 class Solution(object):
     def shuffle(self, nums, n):
         result = []
-        for i in range(len(nums)-n):
-            result.append(nums[i])
-            result.append(nums[i+n])
+        for num in range(n):
+            result.append(nums[num])
+            result.append(nums[num+n])
         return result
+        
 
         
