@@ -1,11 +1,12 @@
 class Solution(object):
     def majorityElement(self, nums):
-        count = len(nums) / 2
-        ex = []
+        counts = {}
         for i in nums:
-            if i not in ex:
-                if nums.count(i) > count:
-                    return i
-            ex.append(i)
+            if i in counts:
+                counts[i]+=1
+            else:
+                counts[i]=1
+            if len(nums) // 2 < counts[i]:
+                return i
                 
         
